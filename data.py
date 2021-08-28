@@ -149,7 +149,8 @@ def save_results(save_path, npyfile, flag_multi_class=False, num_class=2):
         img = visualize_label(num_class, COLOR_DICT, item) \
             if flag_multi_class else item[:, :, 0]
         
-        print(img)
+        img *= 255.
+        img = img.astype(np.uint8)
         
         img_path = os.path.join(save_path, f'{i}.png')
         io.imsave(img_path, img)
