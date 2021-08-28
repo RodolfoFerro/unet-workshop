@@ -142,6 +142,9 @@ def visualize_label(num_class, color_dict, img):
 
 
 def save_results(save_path, npyfile, flag_multi_class=False, num_class=2):
+    if not os.path.exists(save_path):
+        os.mkdir(save_path)
+
     for i, item in enumerate(npyfile):
         img = visualize_label(num_class, COLOR_DICT, item) \
             if flag_multi_class else item[:, :, 0]
