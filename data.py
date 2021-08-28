@@ -138,7 +138,7 @@ def visualize_label(num_class, color_dict, img):
     for i in range(num_class):
         img_out[img == i, :] = color_dict[i]
     
-    return img_out / 255.
+    return img_out
 
 
 def save_results(save_path, npyfile, flag_multi_class=False, num_class=2):
