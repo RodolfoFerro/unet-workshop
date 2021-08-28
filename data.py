@@ -147,4 +147,4 @@ def save_results(save_path, npyfile, flag_multi_class=False, num_class=2):
             if flag_multi_class else item[:, :, 0]
         
         img_path = os.path.join(save_path, f'{i}.png')
-        io.imsave(img_path, ubyte(img))
+        io.imsave(img_path, img)
