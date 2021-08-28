@@ -11,6 +11,7 @@
 # -*- coding: utf-8 -*-
 
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
+import skimage.img_as_ubyte as ubyte
 import skimage.transform as transf
 import skimage.io as io
 import numpy as np
@@ -83,11 +84,6 @@ def train_generator(batch_size, train_path, image_folder, mask_folder,
         image_save_prefix='image', mask_save_prefix='mask',
         flag_multi_class=False, num_class=2, save_to_dir=None,
         target_size=(256, 256), seed=1):
-    '''
-    can generate image and mask at the same time
-    use the same seed for image_datagen and mask_datagen to ensure the transformation for image and mask is the same
-    if you want to visualize the results of generator, set save_to_dir = "your path"
-    '''
 
     image_datagen = ImageDataGenerator(**aug_dict)
     mask_datagen = ImageDataGenerator(**aug_dict)
@@ -152,4 +148,4 @@ def save_results(save_path, npyfile, flag_multi_class=False, num_class=2):
             if flag_multi_class else item[:, :, 0]
         
         img_path = os.path.join(save_path, f'{i}.png')
-        io.imsave(img_path, img)
+        io.imsave(img_path, ubyte(img))
