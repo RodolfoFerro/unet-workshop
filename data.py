@@ -11,7 +11,6 @@
 # -*- coding: utf-8 -*-
 
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-import skimage.img_as_ubyte as ubyte
 import skimage.transform as transf
 import skimage.io as io
 import numpy as np
@@ -134,7 +133,7 @@ def test_generator(test_path, num_image=30, target_size=(256, 256),
 
 def visualize_label(num_class, color_dict, img):
     img = img[:, :, 0] if len(img.shape) == 3 else img
-    img_out = np.zeros(img.shape + (3,))
+    img_out = np.zeros(img.shape + (3,)).astype(np.uint8)
     
     for i in range(num_class):
         img_out[img == i, :] = color_dict[i]
