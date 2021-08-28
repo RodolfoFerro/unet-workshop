@@ -13,7 +13,7 @@ Este repositorio contiene código base para poder instanciar y entranr un U-Net 
 <center>
   <h3>Ejecuta el código:</h3>
   <a href="https://colab.research.google.com/github/RodolfoFerro/unet-workshop/blob/main/Demo.ipynb" target="_blank">
-    <img width="35%" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+    <img width="30%" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
   </a>
 </center>
 
