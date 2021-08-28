@@ -138,7 +138,7 @@ def visualize_label(num_class, color_dict, img):
     for i in range(num_class):
         img_out[img == i, :] = color_dict[i]
     
-    return img_out
+    return img_out / 255.
 
 
 def save_results(save_path, npyfile, flag_multi_class=False, num_class=2):
@@ -148,6 +148,8 @@ def save_results(save_path, npyfile, flag_multi_class=False, num_class=2):
     for i, item in enumerate(npyfile):
         img = visualize_label(num_class, COLOR_DICT, item) \
             if flag_multi_class else item[:, :, 0]
+        
+        print(img)
         
         img_path = os.path.join(save_path, f'{i}.png')
         io.imsave(img_path, img)
