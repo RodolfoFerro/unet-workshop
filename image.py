@@ -44,7 +44,7 @@ def inference_over_image(model, img, plot_img=True):
     return out
 
 
-def create_mask(out_img, plot_img=True):
+def create_mask(out, plot_img=True):
     mask = np.zeros((out.shape[0], out.shape[1], 3), np.uint)
     mask[:, :, 0] = out
     mask[:, :, 1] = out
