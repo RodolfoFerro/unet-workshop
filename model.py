@@ -33,7 +33,7 @@ def unet(pretrained_weights=None, input_size=(256, 256, 1)):
 
     inputs = Input(input_size)
 
-    # Convolution #1
+    # Convolution chain #1
     conv_1 = Conv2D(
         64, 3,
         activation='relu', 
@@ -48,7 +48,7 @@ def unet(pretrained_weights=None, input_size=(256, 256, 1)):
     )(conv_1)
     pool_1 = MaxPooling2D(pool_size=(2, 2))(conv_1)
 
-    # Convolution #2
+    # Convolution chain #2
     conv_2 = Conv2D(
         128, 3,
         activation='relu',
@@ -63,7 +63,7 @@ def unet(pretrained_weights=None, input_size=(256, 256, 1)):
     )(conv_2)
     pool_2 = MaxPooling2D(pool_size=(2, 2))(conv_2)
 
-    # Convolution #3
+    # Convolution chain #3
     conv_3 = Conv2D(
         256, 3,
         activation='relu',
@@ -78,7 +78,7 @@ def unet(pretrained_weights=None, input_size=(256, 256, 1)):
     )(conv_3)
     pool_3 = MaxPooling2D(pool_size=(2, 2))(conv_3)
 
-    # Convolution #4
+    # Convolution chain #4
     conv_4 = Conv2D(
         512, 3,
         activation='relu',
@@ -94,7 +94,7 @@ def unet(pretrained_weights=None, input_size=(256, 256, 1)):
     drop_4 = Dropout(0.5)(conv_4)
     pool_4 = MaxPooling2D(pool_size=(2, 2))(drop_4)
 
-    # Convolution #5 - Middle part + Dropout
+    # Convolution chain #5 - Middle part + Dropout
     conv_5 = Conv2D(
         1024, 3,
         activation='relu',
@@ -109,7 +109,7 @@ def unet(pretrained_weights=None, input_size=(256, 256, 1)):
     )(conv_5)
     drop_5 = Dropout(0.5)(conv_5)
 
-    # Up-sampling #1
+    # Up-sampling chain #1
     upsample_1 = UpSampling2D(size=(2, 2))(drop_5)
     up_6 = Conv2D(
         512, 2,
@@ -131,7 +131,7 @@ def unet(pretrained_weights=None, input_size=(256, 256, 1)):
         kernel_initializer='he_normal'
     )(conv_6)
 
-    # Up-sampling #2
+    # Up-sampling chain #2
     upsample_2 = UpSampling2D(size=(2, 2))(conv_6)
     up_7 = Conv2D(
         256, 2,
@@ -153,7 +153,7 @@ def unet(pretrained_weights=None, input_size=(256, 256, 1)):
         kernel_initializer='he_normal'
     )(conv_7)
 
-    # Up-sampling #3
+    # Up-sampling chain #3
     upsample_3 = UpSampling2D(size=(2, 2))(conv_7)
     up_8 = Conv2D(
         128, 2,
@@ -175,7 +175,7 @@ def unet(pretrained_weights=None, input_size=(256, 256, 1)):
         kernel_initializer='he_normal'
     )(conv_8)
 
-    # Up-sampling #4
+    # Up-sampling chain #4
     upsample_4 = UpSampling2D(size=(2, 2))(conv_8)
     up_9 = Conv2D(
         64, 2,
@@ -207,7 +207,6 @@ def unet(pretrained_weights=None, input_size=(256, 256, 1)):
         activation='sigmoid'
     )(conv_9)
 
-    
     model = Model(inputs=inputs, outputs=conv_10)
     model.compile(
         optimizer=Adam(learning_rate=1e-4),
@@ -216,8 +215,6 @@ def unet(pretrained_weights=None, input_size=(256, 256, 1)):
     )
 
     if pretrained_weights:
-    	model.load_weights(pretrained_weights)
+        model.load_weights(pretrained_weights)
 
     return model
-
-
