@@ -4,7 +4,7 @@
 ![GitHub](https://img.shields.io/github/license/RodolfoFerro/unet-workshop?style=for-the-badge) <br>
 [![Twitter Follow](https://img.shields.io/twitter/follow/rodo_ferro?logo=twitter&style=for-the-badge)](https://twitter.com/rodo_ferro/)
 [![LinkedIn](https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&logoColor=fff&colorB=555)](https://www.linkedin.com/in/rodolfoferro/) <br>
-[![Slides](https://img.shields.io/static/v1?label=Slides&message=Google%20Slides&color=tomato&logo=google&logoColor=fff&style=for-the-badge)](https://docs.google.com/presentation/d/e/2PACX-1vRLVL5dHEJ0-ZzdGwXqt03DLdx6WAbuwOL3E4dHzHvXvrsQOPV7_zhTRE65oxYiD6e_MydDIKG3hgU5/pub?start=false&loop=false&delayms=3000)
+[![Slides](https://img.shields.io/static/v1?label=Slides&message=Google%20Slides&color=tomato&logo=google&logoColor=fff&style=for-the-badge)](https://docs.google.com/presentation/d/e/2PACX-1vQiF8hn0emnQcFFzq4XWuoNyhAJCO-LK4Fd3xKUPHq6ukjRZKhntoa2fY0I_XvnrRp7Xa_y9d1si5V2/pub?start=false&loop=false&delayms=3000)
 
 
 Este repositorio contiene código base para poder instanciar y entrenar un U-Net desde Google Colab.
