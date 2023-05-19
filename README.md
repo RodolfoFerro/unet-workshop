@@ -31,7 +31,7 @@ Esta segunda parte contiene un cuaderno de trabajo en Google Colab que te permit
 
 <center>
   <h4>Ejecuta el código:</h4>
-  <a href="https://colab.research.google.com/github/RodolfoFerro/unet-workshop/blob/main/Demo.ipynb" target="_blank">
+  <a href="https://colab.research.google.com/github/RodolfoFerro/unet-workshop/blob/main/U_Net_Implementation.ipynb" target="_blank">
     <img width="20%" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
   </a>
 </center>
